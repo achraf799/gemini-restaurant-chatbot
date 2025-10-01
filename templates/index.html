@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Restaurant IA - Chat Intégré</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Mon Restaurant</h1>
+            </div>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h2>Bienvenue à Mon Restaurant</h2>
+            <p>Découvrez nos plats et obtenez un devis immédiat ci-dessous.</p>
+            <a href="#menu" class="btn">Voir Notre Menu</a>
+        </div>
+    </header>
+
+    <main class="main-content-grid">
+        <div class="site-sections">
+            <section id="menu" class="section-content">
+                <h3>Notre Menu</h3>
+                <p>Voici quelques plats phares. Pour une liste complète ou un devis, utilisez le chat à droite !</p>
+                <div class="menu-items">
+                    <div class="menu-item"><h4>Avocat aux Crevettes sauce Aurore</h4><p>8.50€</p></div>
+                    <div class="menu-item"><h4>Rôti de Porc cuit (avec PDT Piémontaise)</h4><p>14.50€</p></div>
+                    <div class="menu-item"><h4>Tarte aux Fruits</h4><p>5.00€</p></div>
+                </div>
+            </section>
+
+            <section id="contact" class="section-content">
+                <h3>Contactez-nous</h3>
+                <p>Nous sommes ouverts du Mardi au Dimanche : 12h-14h30 et 19h-22h30.</p>
+                <p><strong>Adresse :</strong> 123 Rue de la Saveur, Saint-Quentin</p>
+                <p><strong>Téléphone :</strong> +33 1 23 45 67 89</p>
+                <form class="contact-form">
+                    <h4>Envoyez-nous un message</h4>
+                    <input type="text" placeholder="Votre Nom">
+                    <input type="email" placeholder="Votre Email">
+                    <textarea placeholder="Votre Message"></textarea>
+                    <button type="submit" class="btn">Envoyer</button>
+                </form>
+            </section>
+        </div>
+
+        <section id="chatbot-section" class="chatbot-integrated">
+            <div class="chatbot-header">
+                Chat IA (Demandez un Devis !)
+            </div>
+            <div class="chat-display-area" id="chat-display-area">
+                <div class="message bot-message">
+                    <p>Bonjour ! Je suis l'assistant IA de Mon Restaurant. Je peux vous donner des informations sur le menu et même générer un devis traiteur. Demandez-moi "un devis".</p>
+                </div>
+                </div>
+            <div class="chat-input-area">
+                <input type="text" id="user-input-text" placeholder="Écrire un message..." autofocus>
+                <button onclick="sendTextMessage()" class="send-text-btn">▶</button>
+
+                <button id="voice-input-btn" class="voice-btn">🎤</button>
+                <p id="bot-status" class="status-msg">ou cliquez sur le micro</p>
+            </div>
+        </section>
+        </main>
+
+    <footer>
+        <p>&copy; 2024 Mon Restaurant IA. Site et Chatbot intégrant Gemini.</p>
+    </footer>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

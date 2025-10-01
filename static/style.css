@@ -1,0 +1,297 @@
+/* static/style.css */
+
+:root {
+    --primary-color: #9C2E0A; 
+    --secondary-color: #F7F5F0; 
+    --text-color: #333;
+    --light-text-color: #ffffff;
+    --header-bg-color: #2c2c2c; 
+    --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.05);
+    --shadow-medium: 0 6px 15px rgba(0, 0, 0, 0.1);
+    --radius: 6px;
+}
+
+body {
+    font-family: 'Georgia', serif; 
+    margin: 0;
+    padding: 0;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.65;
+}
+
+h1, h2, h3, h4 {
+    color: var(--primary-color);
+    font-family: 'Playfair Display', serif; 
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ce4a2d; 
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 12px 25px; 
+    border-radius: 50px; 
+    margin-top: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #ce4a2d;
+    transform: translateY(-2px);
+}
+
+header {
+    background-color: var(--header-bg-color);
+    padding: 20px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo h1 {
+    color: var(--light-text-color);
+    margin: 0;
+    font-size: 2em; 
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 35px; /* Espacement accru */
+}
+
+nav ul li a {
+    color: var(--light-text-color);
+    font-weight: 500;
+    font-size: 1.1em;
+    padding: 5px 0;
+    position: relative;
+}
+
+/* Effet souligné stylisé */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 3px;
+    right: 0;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+    left: 0;
+    background: var(--primary-color);
+}
+
+
+/* --- Section Hero --- */
+.hero {
+    padding: 120px 20px;
+    /* Remplacer par une image de haute qualité dans static/images/hero-bg.jpg */
+    background: url('images/hero-bg.jpg') no-repeat center center/cover; 
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 4em;
+    margin-bottom: 5px;
+    color: white; 
+}
+
+.hero p {
+    font-size: 1.4em;
+    font-weight: 300;
+}
+
+/* --- Sections Principales & Grille --- */
+/* (Inchangé pour le responsive) */
+.main-content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    gap: 40px; /* Espacement accru */
+    max-width: 1200px;
+    margin: 40px auto; /* Marge supérieure accrue */
+    padding: 0 20px;
+    align-items: start; 
+}
+
+.section-content {
+    background-color: white;
+    padding: 35px;
+    margin-bottom: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-medium); /* Ombre plus visible */
+    transition: box-shadow 0.3s ease;
+}
+
+.section-content:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.section-content h3 {
+    font-size: 2.4em; 
+    margin-bottom: 25px;
+}
+
+#menu .menu-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.menu-item {
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--radius);
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.menu-item:hover {
+    background-color: #fcfcfc;
+    box-shadow: var(--shadow-light);
+}
+
+.menu-item h4 {
+    font-size: 1.3em;
+    margin-bottom: 5px;
+}
+
+.menu-item p {
+    font-size: 1.1em;
+    color: #666;
+}
+
+.contact-form {
+    gap: 20px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(156, 46, 10, 0.3);
+    outline: none;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--header-bg-color);
+    padding: 30px 20px;
+    margin-top: 40px;
+    font-size: 0.9em;
+}
+
+
+/* ------------------------------------------- */
+/* --- Chatbot Intégré  --- */
+/* ------------------------------------------- */
+
+.chatbot-integrated {
+    background-color: #fefefe;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); 
+    transition: all 0.3s;
+}
+
+.chatbot-integrated .chatbot-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px;
+    border-bottom: 3px solid #6d240d; 
+    box-shadow: var(--shadow-light);
+}
+
+.chat-display-area {
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.message {
+    margin-bottom: 12px;
+}
+
+.bot-message {
+    background-color: var(--secondary-color);
+    border: 1px solid #ececec;
+    color: var(--text-color);
+    padding: 10px 15px;
+}
+
+.bot-message h1, .bot-message h2, .bot-message h3 {
+    font-size: 1.2em;
+    color: #4a4a4a;
+    margin-top: 15px;
+}
+
+.bot-message p, .bot-message ul {
+    margin-top: 5px;
+}
+
+.chat-input-area {
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    background-color: #f0f0f0;
+}
+
+.chat-input-area .send-text-btn {
+    background-color: #1abc9c; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chat-input-area .send-text-btn:hover {
+    background-color: #16a085;
+}
+
+.chat-input-area .voice-btn {
+    background-color: #e74c3c;
+}
+
+@media (max-width: 900px) {
+    .main-content-grid {
+        grid-template-columns: 1fr;
+    }
+    .chatbot-integrated {
+        height: 400px;
+    }
+}
